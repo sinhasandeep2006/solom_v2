@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order confirmed — SOLOMO ESSENTIALS</title>
+<meta name="description" content="Your order number, what you paid and when it arrives."/>
+<link href="../assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="../assets/js/tw.js"></script>
+<link href="../assets/site.css" rel="stylesheet"/>
+<script>window.SOLOMO_BASE = '../';</script>
+<script src="../assets/js/solomo.js"></script>
+<script src="../assets/js/chrome.js"></script>
+</head>
+<body class="bg-cream-bg font-sans text-navy-brand antialiased selection:bg-orange-light selection:text-orange-brand">
+<script>siteHeader()</script>
+<main class="max-w-2xl mx-auto px-6 py-14 lg:py-20">
+<div class="rounded-3xl border border-sand-border bg-white shadow-sm p-8 sm:p-10 text-center">
+<div aria-hidden="true" class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-700 mx-auto flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">check</span>
+</div>
+<h1 class="text-2xl sm:text-3xl font-bold text-navy-brand tracking-tight mt-5">Thank you — your order is in</h1>
+<p class="text-sm text-slate-body mt-3 leading-relaxed">A confirmation is on its way to your phone and email.</p>
+
+<!-- TODO(order): read the real order by id and render its lines, amount and
+     delivery date. Until then this page must not claim anything was paid. -->
+<div class="mt-7 rounded-2xl border-2 border-dashed border-sand-border bg-cream-surface/50 p-5 text-left">
+<p class="text-xs font-extrabold uppercase tracking-wider text-orange-brand mb-2">Not wired yet</p>
+<p class="text-xs text-slate-body leading-relaxed">
+This page will show your order number, the items, the amount actually paid, the delivery estimate and an invoice download — all read from the order record.
+</p>
+<p class="text-xs text-slate-body leading-relaxed mt-2">
+<strong class="text-navy-brand">It reads that status; it never sets it.</strong> An order is marked paid only by a signature-verified webhook from the payment gateway, so arriving on this page proves nothing on its own. If the webhook has not landed yet, this page should say “we are still confirming your payment”.
+</p>
+</div>
+<div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+<a class="w-full sm:w-auto px-6 py-3 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-sm font-bold transition-colors" href="track.html">Track your order</a>
+<a class="w-full sm:w-auto px-6 py-3 rounded-full bg-cream-surface hover:bg-sand-border border border-sand-border text-navy-brand text-sm font-bold transition-colors" href="../shop.html">Keep shopping</a>
+</div>
+</div>
+</main>
+<script>siteFooter()</script>
+
+</body></html>

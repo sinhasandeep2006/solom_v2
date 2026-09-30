@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout — SOLOMO ESSENTIALS</title>
+<meta name="description" content="Delivery address, pincode check and payment. UPI, cards, netbanking and cash on delivery."/>
+<link href="assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="assets/js/tw.js"></script>
+<link href="assets/site.css" rel="stylesheet"/>
+<script>window.SOLOMO_BASE = '';</script>
+<script src="assets/js/solomo.js"></script>
+<script src="assets/js/chrome.js"></script>
+</head>
+<body class="bg-cream-bg font-sans text-navy-brand antialiased selection:bg-orange-light selection:text-orange-brand">
+<script>siteHeader()</script>
+<main class="max-w-6xl mx-auto px-6 lg:px-10 py-8 lg:py-12">
+<h1 class="text-2xl sm:text-3xl font-bold text-navy-brand tracking-tight">Checkout</h1>
+<p class="text-sm text-slate-body mt-1">Guest checkout — no account needed.</p>
+
+<form class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8" id="checkout-form" novalidate>
+<div class="lg:col-span-7 space-y-8">
+
+<section>
+<h2 class="text-xs font-extrabold uppercase tracking-wider text-orange-brand mb-3">1 · Contact</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-navy-brand mb-1" for="co-phone">Phone <span class="text-slate-body font-normal">— for delivery updates</span></label>
+<input autocomplete="tel" class="w-full bg-white border border-sand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:border-navy-brand" id="co-phone" inputmode="numeric" maxlength="10" name="phone" required type="tel"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-navy-brand mb-1" for="co-email">Email <span class="text-slate-body font-normal">— for the invoice</span></label>
+<input autocomplete="email" class="w-full bg-white border border-sand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:border-navy-brand" id="co-email" name="email" required type="email"/>
+</div>
+</div>
+</section>
+
+<section>
+<h2 class="text-xs font-extrabold uppercase tracking-wider text-orange-brand mb-3">2 · Delivery address</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-navy-brand mb-1" for="co-name">Full name</label>
+<input autocomplete="name" class="w-full bg-white border border-sand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:border-navy-brand" id="co-name" name="name" required type="text"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-navy-brand mb-1" for="co-flat">Flat / building</label>
+<input autocomplete="address-line1" class="w-full bg-white border border-sand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:border-navy-brand" id="co-flat" name="flat" required type="text"/>
+</div>
+<div class="sm:col-span-2">
+<label class="block text-xs font-semibold text-navy-brand mb-1" for="co-street">Street, area, landmark</label>
+<input autocomplete="address-line2" class="w-full bg-white border border-sand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:border-navy-brand" id="co-street" name="street" required type="text"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-navy-brand mb-1" for="co-pin">Pincode</label>
+<input autocomplete="postal-code" class="w-full bg-white border border-sand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:border-navy-brand" id="co-pin" inputmode="numeric" maxlength="6" name="pincode" required type="text"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-navy-brand mb-1" for="co-city">City</label>
+<input autocomplete="address-level2" class="w-full bg-white border border-sand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:border-navy-brand" id="co-city" name="city" required type="text"/>
+</div>
+<div class="sm:col-span-2">
+<label class="block text-xs font-semibold text-navy-brand mb-1" for="co-state">State</label>
+<input autocomplete="address-level1" class="w-full bg-white border border-sand-border rounded-xl px-4 py-2.5 text-sm outline-none focus:border-navy-brand" id="co-state" name="state" required type="text"/>
+</div>
+</div>
+<!-- TODO(serviceability): the pincode must be checked against your courier's
+     serviceable list. It decides three things: whether you can deliver at all,
+     the date shown, and whether COD is offered. -->
+<p aria-live="polite" class="text-xs text-slate-body mt-2" id="pin-msg">Enter a 6-digit pincode to check delivery.</p>
+</section>
+
+<section>
+<h2 class="text-xs font-extrabold uppercase tracking-wider text-orange-brand mb-3">3 · Payment</h2>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+<label class="pay-opt cursor-pointer rounded-xl border-2 border-orange-brand bg-orange-light px-3 py-3 text-center text-xs font-bold text-navy-brand">
+<input checked class="sr-only" name="pay" type="radio" value="upi"/> UPI
+</label>
+<label class="pay-opt cursor-pointer rounded-xl border-2 border-sand-border bg-white px-3 py-3 text-center text-xs font-bold text-navy-brand">
+<input class="sr-only" name="pay" type="radio" value="card"/> Card
+</label>
+<label class="pay-opt cursor-pointer rounded-xl border-2 border-sand-border bg-white px-3 py-3 text-center text-xs font-bold text-navy-brand">
+<input class="sr-only" name="pay" type="radio" value="netbanking"/> Netbanking
+</label>
+<label class="pay-opt cursor-pointer rounded-xl border-2 border-sand-border bg-white px-3 py-3 text-center text-xs font-bold text-navy-brand">
+<input class="sr-only" name="pay" type="radio" value="cod"/> Cash on delivery
+</label>
+</div>
+<p class="text-xs text-slate-body mt-2">UPI carries most orders in India, so it leads. Cash on delivery depends on your pincode.</p>
+</section>
+</div>
+
+<div class="lg:col-span-5">
+<div class="rounded-3xl border border-sand-border bg-cream-surface/40 p-6 lg:sticky lg:top-28 space-y-3">
+<h2 class="text-sm font-extrabold text-navy-brand">Order summary</h2>
+<div class="space-y-1.5 pt-1" id="checkout-lines"></div>
+<div class="flex items-center justify-between text-xs text-slate-body pt-2 border-t border-sand-border">
+<span>Subtotal</span><span class="font-bold text-navy-brand tabular-nums" id="page-subtotal">₹0</span>
+</div>
+<div class="hidden items-center justify-between text-xs text-emerald-700 font-semibold" id="page-discount-row">
+<span id="page-discount-label">Discount</span><span class="tabular-nums" id="page-discount">−₹0</span>
+</div>
+<div class="flex items-center justify-between text-xs font-semibold">
+<span>Express delivery</span><span class="tabular-nums" id="page-shipping">—</span>
+</div>
+<div class="flex items-center justify-between text-base font-extrabold text-navy-brand pt-3 border-t border-sand-border">
+<span>Pay now</span><span class="tabular-nums" id="page-total">₹0</span>
+</div>
+
+<button class="w-full py-3.5 bg-orange-brand hover:bg-[#E84E00] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-sm rounded-full shadow-md shadow-orange-brand/20 transition-all flex items-center justify-center gap-2" id="place-order" type="submit">
+<span>Place order — <span id="pay-amount">₹0</span></span>
+</button>
+<p aria-live="polite" class="text-xs text-center min-h-[1rem]" id="order-msg"></p>
+<p class="text-[11px] text-center text-slate-body">
+By placing this order you agree to our <a class="underline underline-offset-2 hover:text-orange-brand" href="policies/terms.html">Terms of Sale</a> and <a class="underline underline-offset-2 hover:text-orange-brand" href="policies/returns.html">Returns Policy</a>.
+</p>
+<a class="block py-2.5 text-center text-xs font-bold text-navy-brand hover:text-orange-brand underline decoration-orange-brand decoration-2 underline-offset-2" href="cart.html">Edit basket</a>
+</div>
+</div>
+</form>
+</main>
+<script>siteFooter()</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  /* Payment method: highlight the chosen one. */
+  var opts = document.querySelectorAll('.pay-opt');
+  for (var i = 0; i < opts.length; i++) {
+    opts[i].addEventListener('click', function () {
+      for (var j = 0; j < opts.length; j++) {
+        var on = opts[j].querySelector('input').checked;
+        opts[j].classList.toggle('border-orange-brand', on);
+        opts[j].classList.toggle('bg-orange-light', on);
+        opts[j].classList.toggle('border-sand-border', !on);
+        opts[j].classList.toggle('bg-white', !on);
+      }
+    });
+  }
+
+  /* Pincode: shape check only. Real serviceability is a server call. */
+  var pin = document.getElementById('co-pin');
+  var pinMsg = document.getElementById('pin-msg');
+  pin.addEventListener('input', function () {
+    var v = pin.value.replace(/\D/g, '').slice(0, 6);
+    pin.value = v;
+    if (v.length < 6) {
+      pinMsg.textContent = 'Enter a 6-digit pincode to check delivery.';
+      pinMsg.className = 'text-xs text-slate-body mt-2';
+    } else {
+      /* TODO(serviceability): replace with a call to your courier's API. */
+      pinMsg.textContent = 'Pincode format looks right. Serviceability is confirmed at payment.';
+      pinMsg.className = 'text-xs text-slate-body mt-2';
+    }
+  });
+
+  document.getElementById('checkout-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = document.getElementById('order-msg');
+    var form = e.currentTarget;
+
+    /* Validate at the trust boundary, even though the server must re-validate. */
+    var missing = [];
+    ['co-name', 'co-phone', 'co-email', 'co-flat', 'co-street', 'co-pin', 'co-city', 'co-state']
+      .forEach(function (id) {
+        var f = document.getElementById(id);
+        if (!f.value.trim()) missing.push(f.previousElementSibling.textContent.split(' —')[0]);
+      });
+    if (!/^[6-9]\d{9}$/.test(document.getElementById('co-phone').value)) {
+      missing.push('a valid 10-digit mobile number');
+    }
+    if (document.getElementById('co-pin').value.length !== 6) missing.push('a 6-digit pincode');
+
+    if (missing.length) {
+      msg.textContent = 'Still needed: ' + missing.join(', ') + '.';
+      msg.className = 'text-xs text-center text-red-700 min-h-[1rem]';
+      return;
+    }
+
+    /* This is the seam. The payload carries SKUs and quantities — never a
+       price. See the TODO(price-authority) block in assets/js/solomo.js. */
+    var payload = checkoutPayload();
+    payload.address = {
+      name: document.getElementById('co-name').value.trim(),
+      phone: document.getElementById('co-phone').value.trim(),
+      email: document.getElementById('co-email').value.trim(),
+      flat: document.getElementById('co-flat').value.trim(),
+      street: document.getElementById('co-street').value.trim(),
+      pincode: document.getElementById('co-pin').value.trim(),
+      city: document.getElementById('co-city').value.trim(),
+      state: document.getElementById('co-state').value.trim()
+    };
+    payload.paymentMode = form.querySelector('input[name="pay"]:checked').value;
+
+    console.log('POST /api/order', payload);
+    msg.textContent = 'Payment is not connected yet — wire /api/order to take this order.';
+    msg.className = 'text-xs text-center text-slate-body min-h-[1rem]';
+  });
+});
+</script>
+</body></html>

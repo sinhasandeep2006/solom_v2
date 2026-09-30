@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search — SOLOMO ESSENTIALS</title>
+<meta name="description" content="Search the full range of SOLOMO ESSENTIALS bamboo tissues, wipes and bundles."/>
+<link href="assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="assets/js/tw.js"></script>
+<link href="assets/site.css" rel="stylesheet"/>
+<script>window.SOLOMO_BASE = '';</script>
+<script src="assets/js/solomo.js"></script>
+<script src="assets/js/chrome.js"></script>
+</head>
+<body class="bg-cream-bg font-sans text-navy-brand antialiased selection:bg-orange-light selection:text-orange-brand">
+<script>siteHeader()</script>
+<main class="max-w-7xl mx-auto px-6 lg:px-10 py-8 lg:py-12" id="catalog">
+<h1 class="text-2xl sm:text-3xl font-bold text-navy-brand tracking-tight" id="search-heading">All products</h1>
+<p class="text-sm text-slate-body mt-1"><span id="result-count">6 products</span></p>
+
+<form action="search.html" class="mt-6 flex items-center gap-2 bg-white border-2 border-sand-border rounded-full px-4 py-2 max-w-md focus-within:border-navy-brand" data-search method="get" role="search">
+<span aria-hidden="true" class="material-symbols-outlined text-base text-navy-muted">search</span>
+<label class="sr-only" for="search-page-input">Search products</label>
+<input autocomplete="off" class="bg-transparent border-none outline-none text-navy-brand placeholder:text-slate-body text-sm flex-1" id="search-page-input" name="q" placeholder="Search tissues, wipes, packs..." type="search"/>
+</form>
+
+<div aria-label="Filter by category" class="flex flex-nowrap items-center gap-1 max-w-full overflow-x-auto [scrollbar-width:none] bg-cream-surface border border-sand-border p-1.5 rounded-full text-xs font-semibold mt-6 w-fit" id="category-tabs" role="tablist">
+<button aria-selected="true" class="px-4 py-2 rounded-full" data-cat="all" role="tab" type="button">All Essentials</button>
+<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="table" role="tab" type="button">Table Boxes</button>
+<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="wipes" role="tab" type="button">Pure Wipes</button>
+<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="pocket" role="tab" type="button">Pocket Travel</button>
+<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="bundle" role="tab" type="button">Bundles</button>
+</div>
+
+<h2 class="sr-only">Products</h2>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10 mt-8" data-cards="all" id="product-grid"></div>
+<p aria-live="polite" class="text-center text-sm text-slate-body mt-10" hidden id="no-results"></p>
+</main>
+<script>siteFooter()</script>
+<script>
+/* Seed the page from ?q=. The shared filter in solomo.js does the rest, so
+   search.html and the home page can never disagree about what matches. */
+document.addEventListener('DOMContentLoaded', function () {
+  var q = new URLSearchParams(location.search).get('q');
+  if (!q) return;
+  var box = document.getElementById('search-page-input');
+  box.value = q;
+  document.getElementById('search-heading').textContent = 'Results for \u201c' + q + '\u201d';
+  var head = document.getElementById('site-search');
+  if (head) { head.value = q; head.dispatchEvent(new Event('input')); }
+  box.dispatchEvent(new Event('input'));
+});
+</script>
+</body></html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shop All Essentials — SOLOMO ESSENTIALS</title>
+<meta name="description" content="Every SOLOMO ESSENTIALS bamboo tissue box, water wipe pack and bundle in one place."/>
+<link href="assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="assets/js/tw.js"></script>
+<link href="assets/site.css" rel="stylesheet"/>
+<script>window.SOLOMO_BASE = '';</script>
+<script src="assets/js/solomo.js"></script>
+<script src="assets/js/chrome.js"></script>
+</head>
+<body class="bg-cream-bg font-sans text-navy-brand antialiased selection:bg-orange-light selection:text-orange-brand">
+<script>siteHeader()</script>
+<main id="catalog">
+<section class="bg-cream-warm border-b border-sand-border">
+  <div class="max-w-7xl mx-auto px-4 lg:px-10 py-12 lg:py-16 text-center">
+    <nav aria-label="Breadcrumb" class="text-xs text-slate-body"><a class="hover:text-navy-brand" href="index.html">Home</a> / <span class="text-navy-brand font-semibold">Shop</span></nav>
+    <h1 class="font-serif text-4xl lg:text-5xl font-semibold text-navy-brand mt-3">All essentials</h1>
+    <p class="text-slate-body mt-3 max-w-xl mx-auto">Tissues, wipes and bundles, all from 100% unbleached bamboo pulp.</p>
+  </div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 lg:px-10 py-8 lg:py-12">
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-sand-border">
+    <div aria-label="Filter by category" class="flex flex-nowrap items-center gap-1 max-w-full overflow-x-auto [scrollbar-width:none] bg-cream-surface border border-sand-border p-1.5 rounded-full text-xs font-semibold w-fit" id="category-tabs" role="tablist">
+      <button aria-selected="true" data-cat="all" role="tab" type="button">All Essentials</button>
+      <button aria-selected="false" data-cat="table" role="tab" type="button">Table Boxes</button>
+      <button aria-selected="false" data-cat="wipes" role="tab" type="button">Pure Wipes</button>
+      <button aria-selected="false" data-cat="pocket" role="tab" type="button">Pocket Travel</button>
+      <button aria-selected="false" data-cat="bundle" role="tab" type="button">Bundles</button>
+    </div>
+    <div class="flex items-center gap-4 text-sm">
+      <span class="text-slate-body" id="result-count">6 products</span>
+      <label class="sr-only" for="sort">Sort by</label>
+      <select class="rounded-full border-sand-border bg-white text-sm font-semibold text-navy-brand focus:border-navy-brand focus:ring-0 pr-10" id="sort">
+        <option value="featured">Featured</option>
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+        <option value="rated">Most reviewed</option>
+      </select>
+    </div>
+  </div>
+
+  <h2 class="sr-only">Products</h2>
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10 mt-8" data-cards="all" id="product-grid"></div>
+  <p aria-live="polite" class="text-center text-sm text-slate-body mt-10" hidden id="no-results"></p>
+</section>
+</main>
+<script>siteFooter()</script>
+<script>
+/* ?cat=table from the nav, and a sort that just reorders the cards. */
+document.addEventListener('DOMContentLoaded', function () {
+  var cat = new URLSearchParams(location.search).get('cat');
+  var tab = cat && document.querySelector('#category-tabs [data-cat="' + cat + '"]');
+  if (tab) tab.click();
+
+  var grid = document.getElementById('product-grid');
+  var original = Array.prototype.slice.call(grid.children);
+  document.getElementById('sort').addEventListener('change', function (e) {
+    var by = e.target.value, list = original.slice();
+    var p = function (a) { return PRODUCTS[a.dataset.sku]; };
+    if (by === 'low') list.sort(function (a, b) { return p(a).price - p(b).price; });
+    if (by === 'high') list.sort(function (a, b) { return p(b).price - p(a).price; });
+    if (by === 'rated') list.sort(function (a, b) { return p(b).reviews - p(a).reviews; });
+    list.forEach(function (n) { grid.appendChild(n); });
+  });
+});
+</script>
+</body></html>

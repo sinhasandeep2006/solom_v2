@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pack Size Guide — SOLOMO ESSENTIALS</title>
+<meta name="description" content="Sheets, ply and the best room for every SOLOMO ESSENTIALS format."/>
+<link href="assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="assets/js/tw.js"></script>
+<link href="assets/site.css" rel="stylesheet"/>
+<script>window.SOLOMO_BASE = '';</script>
+<script src="assets/js/solomo.js"></script>
+<script src="assets/js/chrome.js"></script>
+</head>
+<body class="bg-cream-bg font-sans text-navy-brand antialiased selection:bg-orange-light selection:text-orange-brand">
+<script>siteHeader()</script>
+<main>
+<section class="bg-cream-warm border-b border-sand-border">
+  <div class="max-w-7xl mx-auto px-4 lg:px-10 py-12 lg:py-16 text-center">
+    <nav aria-label="Breadcrumb" class="text-xs text-slate-body"><a class="hover:text-navy-brand" href="index.html">Home</a> / <span class="text-navy-brand font-semibold">Pack size guide</span></nav>
+    <h1 class="font-serif text-4xl lg:text-5xl font-semibold text-navy-brand mt-3">Pack size guide</h1>
+    <p class="text-slate-body mt-3">Every format side by side, so you can pick the right box for the room.</p>
+  </div>
+</section>
+<section class="max-w-6xl mx-auto px-4 lg:px-10 py-14">
+  <div class="overflow-x-auto rounded-3xl border border-sand-border bg-white">
+    <table class="w-full text-sm text-left min-w-[640px]">
+      <thead class="bg-navy-brand text-white font-serif"><tr><th class="px-5 py-4 font-medium">Product</th><th class="px-5 py-4 font-medium">Net quantity</th><th class="px-5 py-4 font-medium">Best for</th><th class="px-5 py-4 font-medium">Price</th></tr></thead>
+      <tbody id="guide" class="divide-y divide-sand-border"></tbody>
+    </table>
+  </div>
+  <p class="text-xs text-slate-body mt-4">Prices inclusive of all taxes. Quantities are taken from each product’s listing.</p>
+</section>
+</main>
+<script>siteFooter()</script>
+<script>
+/* Rows come from PRODUCTS so this table can never disagree with a product page. */
+document.getElementById('guide').innerHTML = Object.keys(PRODUCTS).map(function (s) {
+  var p = PRODUCTS[s];
+  return '<tr><td class="px-5 py-4"><a class="flex items-center gap-3 font-bold text-navy-brand hover:text-orange-brand" href="' + productUrl(s) + '">' +
+    '<img alt="" class="w-12 h-12 rounded-xl object-cover" src="' + pic(s) + '"/>' + esc(p.name) + '</a></td>' +
+    '<td class="px-5 py-4 text-slate-body">' + esc(p.netQty) + '</td><td class="px-5 py-4 text-slate-body">' + esc(p.room) + '</td>' +
+    '<td class="px-5 py-4 font-extrabold tabular-nums">' + rupees(p.price) + '</td></tr>';
+}).join('');
+</script>
+</body></html>

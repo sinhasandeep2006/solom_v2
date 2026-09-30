@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Page not found — SOLOMO ESSENTIALS</title>
+<meta name="description" content="That page has moved on. Search the shop or start with a bestseller."/>
+<script>
+/* GitHub Pages serves this file for ANY missing URL, e.g. /repo/products/x/y.html,
+   so relative links would resolve against that deep path. Pin them to the site root. */
+if (/\.github\.io$/.test(location.hostname)) {
+  document.write('<base href="/' + location.pathname.split('/')[1] + '/">');
+}
+</script>
+<link href="assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="assets/js/tw.js"></script>
+<link href="assets/site.css" rel="stylesheet"/>
+<script>window.SOLOMO_BASE = '';</script>
+<script src="assets/js/solomo.js"></script>
+<script src="assets/js/chrome.js"></script>
+</head>
+<body class="bg-cream-bg font-sans text-navy-brand antialiased selection:bg-orange-light selection:text-orange-brand">
+<script>siteHeader()</script>
+<main class="max-w-7xl mx-auto px-6 lg:px-10 py-14 lg:py-20">
+<div class="text-center max-w-lg mx-auto">
+<p class="text-5xl font-extrabold text-navy-brand tracking-tight">404</p>
+<h1 class="text-xl sm:text-2xl font-bold text-navy-brand mt-3">That page has moved on</h1>
+<p class="text-sm text-slate-body mt-2">The link may be old, or the address slightly off. Search below, or start with one of these.</p>
+<form action="search.html" class="mt-6 flex items-center gap-2 bg-white border-2 border-sand-border rounded-full px-4 py-2.5 focus-within:border-navy-brand" method="get" role="search">
+<span aria-hidden="true" class="material-symbols-outlined text-base text-navy-muted">search</span>
+<label class="sr-only" for="nf-search">Search products</label>
+<input autocomplete="off" class="bg-transparent border-none outline-none text-navy-brand placeholder:text-slate-body text-sm flex-1" id="nf-search" name="q" placeholder="Search tissues, wipes, packs..." type="search"/>
+<button class="px-4 py-2.5 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-colors shrink-0" type="submit">Search</button>
+</form>
+</div>
+<h2 class="text-sm font-extrabold uppercase tracking-wider text-orange-brand mt-14 mb-6 text-center">Or start here</h2>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10 mt-8" data-cards="CUBE-06,WIPE-06,POCK-18,TRIO-BX" id="product-grid"></div>
+</main>
+<script>siteFooter()</script>
+
+</body></html>

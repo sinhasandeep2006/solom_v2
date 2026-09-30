@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOLOMO ESSENTIALS</title>
+<meta name="description" content="Unbleached bamboo tissues and wipes."/>
+<link href="../assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="../assets/js/tw.js"></script>
+<link href="../assets/site.css" rel="stylesheet"/>
+<script>window.SOLOMO_BASE = '../';</script>
+<script src="../assets/js/solomo.js"></script>
+<script src="../assets/js/chrome.js"></script>
+</head>
+<body class="bg-cream-bg font-sans text-navy-brand antialiased selection:bg-orange-light selection:text-orange-brand">
+<script>siteHeader()</script>
+<main data-pdp="DESK-04"></main>
+<script>siteFooter()</script>
+<script>
+/* Gallery: click a thumbnail, swap the main image. */
+document.querySelectorAll('.gal-thumb').forEach(function (t, _, all) {
+  t.addEventListener('click', function () {
+    document.getElementById('gal-main').src = t.dataset.src;
+    all.forEach(function (o) { o.classList.toggle('border-orange-brand', o === t); o.classList.toggle('border-sand-border', o !== t); });
+  });
+});
+</script>
+</body></html>

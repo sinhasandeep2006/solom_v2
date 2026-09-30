@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment did not complete — SOLOMO ESSENTIALS</title>
+<meta name="description" content="That payment did not go through. Nothing was charged and your basket is intact."/>
+<link href="../assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="../assets/js/tw.js"></script>
+<link href="../assets/site.css" rel="stylesheet"/>
+<script>window.SOLOMO_BASE = '../';</script>
+<script src="../assets/js/solomo.js"></script>
+<script src="../assets/js/chrome.js"></script>
+</head>
+<body class="bg-cream-bg font-sans text-navy-brand antialiased selection:bg-orange-light selection:text-orange-brand">
+<script>siteHeader()</script>
+<main class="max-w-2xl mx-auto px-6 py-14 lg:py-20">
+<div class="rounded-3xl border border-sand-border bg-white shadow-sm p-8 sm:p-10 text-center">
+<div aria-hidden="true" class="w-16 h-16 rounded-full bg-orange-light text-orange-brand mx-auto flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">priority_high</span>
+</div>
+<h1 class="text-2xl sm:text-3xl font-bold text-navy-brand tracking-tight mt-5">That payment did not complete</h1>
+<p class="text-sm text-slate-body mt-3 leading-relaxed">It happens more often than you would think, and it is easy to fix.</p>
+
+<div class="mt-6 rounded-2xl bg-cream-surface/60 border border-sand-border p-5 text-left">
+<p class="text-sm font-bold text-navy-brand">Nothing was charged.</p>
+<p class="text-xs text-slate-body mt-1.5 leading-relaxed">Your basket is exactly as you left it. Payments drop out for ordinary reasons — a UPI request that timed out, a bank page that closed, an app that took too long to come back.</p>
+</div>
+<div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+<a class="w-full sm:w-auto px-6 py-3 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-sm font-bold transition-colors" href="../checkout.html">Try payment again</a>
+<a class="w-full sm:w-auto px-6 py-3 rounded-full bg-cream-surface hover:bg-sand-border border border-sand-border text-navy-brand text-sm font-bold transition-colors" href="../cart.html">Back to basket</a>
+</div>
+<p class="text-xs text-slate-body mt-6">
+Money left your account but you landed here? <a class="font-bold underline underline-offset-2 hover:text-orange-brand" href="../contact.html">Tell us</a> — a pending charge usually reverses within 5 working days, and we will confirm either way.
+</p>
+<!-- Never clear the basket on this page. It is where a large share of Indian
+     orders bounce through, and an emptied basket is an abandoned sale. -->
+</div>
+</main>
+<script>siteFooter()</script>
+
+</body></html>

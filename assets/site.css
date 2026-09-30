@@ -1,0 +1,60 @@
+/* The few things Tailwind utilities can't say. Shared by every v2 page. */
+html, body { margin: 0; background: #FFFDF7; color: #111A78; }
+body.drawer-open, body.menu-open { overflow: hidden; }
+/* A utility like .flex would otherwise beat the [hidden] attribute. */
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid #FF5A0A; outline-offset: 2px; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #F7F3E8; }
+::-webkit-scrollbar-thumb { background: #D8D0BE; border-radius: 9999px; }
+
+/* Horizontal product rails: native scroll-snap, arrows just nudge scrollLeft. */
+.rail { display: grid; grid-auto-flow: column; gap: 1.25rem; overflow-x: auto;
+        scroll-snap-type: x mandatory; scrollbar-width: none; scroll-behavior: smooth; }
+.rail::-webkit-scrollbar { display: none; }
+.rail > * { scroll-snap-align: start; }
+.rail-5 { grid-auto-columns: 72%; }
+.rail-4 { grid-auto-columns: 72%; }
+@media (min-width: 640px)  { .rail-5, .rail-4 { grid-auto-columns: calc((100% - 1.25rem) / 2.3); } }
+@media (min-width: 1024px) { .rail-5 { grid-auto-columns: calc((100% - 5rem) / 5); }
+                             .rail-4 { grid-auto-columns: calc((100% - 3.75rem) / 4); } }
+
+/* Hero slideshow: stacked slides, one visible. */
+.slide { opacity: 0; visibility: hidden; transition: opacity .8s ease, visibility .8s; }
+.slide.is-on { opacity: 1; visibility: visible; }
+.slide.is-on .slide-copy > * { animation: rise .8s ease both; }
+.slide.is-on .slide-copy > *:nth-child(2) { animation-delay: .1s; }
+.slide.is-on .slide-copy > *:nth-child(3) { animation-delay: .2s; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* Announcement ticker */
+.ann-msg { transition: opacity .4s, transform .4s; }
+.ann-msg[hidden] { display: block !important; opacity: 0; transform: translateY(8px); position: absolute; inset: 0; pointer-events: none; }
+
+/* Mega menu opens on hover and on keyboard focus. */
+.has-mega:hover > .mega, .has-mega:focus-within > .mega { opacity: 1; visibility: visible; transform: none; }
+.mega { opacity: 0; visibility: hidden; transform: translateY(-6px); transition: all .2s ease; }
+
+/* Link underline that grows from the left. */
+.u-grow { background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat; transition: background-size .3s; }
+.u-grow:hover, .u-grow:focus-visible { background-size: 100% 2px; }
+
+/* Accordions on the product page */
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .acc-icon { transform: rotate(45deg); }
+
+/* Reveal-on-scroll */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* Shoppable hotspot pulse */
+.hotspot::after { content: ''; position: absolute; inset: -6px; border-radius: 9999px;
+                  border: 2px solid #FF5A0A; animation: pulse 1.8s ease-out infinite; }
+@keyframes pulse { from { opacity: .9; transform: scale(.8); } to { opacity: 0; transform: scale(1.6); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+                           transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; }
+}

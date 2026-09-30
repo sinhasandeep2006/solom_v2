@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Account — SOLOMO ESSENTIALS</title>
+<meta name="description" content="Sign in or create a SOLOMO ESSENTIALS account."/>
+<link href="assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="assets/js/tw.js"></script>
+<link href="assets/site.css" rel="stylesheet"/>
+<script>window.SOLOMO_BASE = '';</script>
+<script src="assets/js/solomo.js"></script>
+<script src="assets/js/chrome.js"></script>
+</head>
+<body class="bg-cream-bg font-sans text-navy-brand antialiased selection:bg-orange-light selection:text-orange-brand">
+<script>siteHeader()</script>
+<main class="max-w-5xl mx-auto px-4 lg:px-10 py-14 lg:py-20">
+  <h1 class="font-serif text-4xl lg:text-5xl font-semibold text-navy-brand text-center">Your account</h1>
+  <!-- TODO(accounts): no auth backend yet. Both forms validate and say so honestly. -->
+  <p class="text-center text-sm text-slate-body mt-3 max-w-lg mx-auto">Customer accounts are coming soon. Until then you can check out as a guest and <a class="underline text-navy-brand font-semibold" href="order/track.html">track any order</a> with its number and your phone.</p>
+  <div class="grid md:grid-cols-2 gap-8 mt-12">
+    <form class="bg-white rounded-3xl border border-sand-border p-8 space-y-4" data-account novalidate>
+      <h2 class="font-serif text-2xl font-semibold text-navy-brand">Sign in</h2>
+      <div><label class="block text-xs font-bold mb-1.5" for="li-email">Email</label><input autocomplete="email" class="w-full rounded-full border-sand-border focus:border-navy-brand focus:ring-0 px-5 py-3" id="li-email" required type="email"/></div>
+      <div><label class="block text-xs font-bold mb-1.5" for="li-pass">Password</label><input autocomplete="current-password" class="w-full rounded-full border-sand-border focus:border-navy-brand focus:ring-0 px-5 py-3" id="li-pass" required type="password"/></div>
+      <button class="w-full py-3.5 rounded-full bg-navy-brand hover:bg-navy-muted text-white font-bold transition-colors" type="submit">Sign in</button>
+      <p aria-live="polite" class="text-xs min-h-[1rem] text-slate-body"></p>
+    </form>
+    <form class="bg-cream-warm rounded-3xl border border-sand-border p-8 space-y-4" data-account novalidate>
+      <h2 class="font-serif text-2xl font-semibold text-navy-brand">New here?</h2>
+      <p class="text-sm text-slate-body">Save addresses, reorder in one tap and see every order in one place.</p>
+      <div><label class="block text-xs font-bold mb-1.5" for="rg-name">Full name</label><input autocomplete="name" class="w-full rounded-full border-sand-border focus:border-navy-brand focus:ring-0 px-5 py-3" id="rg-name" required type="text"/></div>
+      <div><label class="block text-xs font-bold mb-1.5" for="rg-email">Email</label><input autocomplete="email" class="w-full rounded-full border-sand-border focus:border-navy-brand focus:ring-0 px-5 py-3" id="rg-email" required type="email"/></div>
+      <div><label class="block text-xs font-bold mb-1.5" for="rg-pass">Password</label><input autocomplete="new-password" class="w-full rounded-full border-sand-border focus:border-navy-brand focus:ring-0 px-5 py-3" id="rg-pass" minlength="8" required type="password"/></div>
+      <button class="w-full py-3.5 rounded-full bg-orange-brand hover:bg-orange-deep text-white font-bold transition-colors" type="submit">Create account</button>
+      <p aria-live="polite" class="text-xs min-h-[1rem] text-slate-body"></p>
+    </form>
+  </div>
+</main>
+<script>siteFooter()</script>
+<script>
+document.querySelectorAll('form[data-account]').forEach(function (f) {
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = f.querySelector('[aria-live]');
+    msg.textContent = f.checkValidity()
+      ? 'Accounts aren’t switched on yet, so nothing was saved. Guest checkout works today.'
+      : 'Please fill in every field (password at least 8 characters).';
+  });
+});
+</script>
+</body></html>

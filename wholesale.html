@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wholesale Enquiries — SOLOMO ESSENTIALS</title>
+<meta name="description" content="Stock SOLOMO ESSENTIALS bamboo tissues in your shop, café, clinic or hotel."/>
+<link href="assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="assets/js/tw.js"></script>
+<link href="assets/site.css" rel="stylesheet"/>
+<script>window.SOLOMO_BASE = '';</script>
+<script src="assets/js/solomo.js"></script>
+<script src="assets/js/chrome.js"></script>
+</head>
+<body class="bg-cream-bg font-sans text-navy-brand antialiased selection:bg-orange-light selection:text-orange-brand">
+<script>siteHeader()</script>
+<main>
+<section class="bg-cream-warm border-b border-sand-border">
+  <div class="max-w-7xl mx-auto px-4 lg:px-10 py-12 lg:py-16 text-center">
+    <nav aria-label="Breadcrumb" class="text-xs text-slate-body"><a class="hover:text-navy-brand" href="index.html">Home</a> / <span class="text-navy-brand font-semibold">Wholesale</span></nav>
+    <h1 class="font-serif text-4xl lg:text-5xl font-semibold text-navy-brand mt-3">Wholesale enquiries</h1>
+    <p class="text-slate-body mt-3 max-w-xl mx-auto">For shops, cafés, clinics, hotels and offices that want unbleached bamboo tissue by the case.</p>
+  </div>
+</section>
+<section class="max-w-6xl mx-auto px-4 lg:px-10 py-14 grid lg:grid-cols-5 gap-10">
+  <div class="lg:col-span-2 space-y-6">
+    <div class="flex gap-4"><span aria-hidden="true" class="material-symbols-outlined text-3xl text-orange-brand">inventory_2</span><div><h2 class="font-serif text-lg font-semibold">Case pricing</h2><p class="text-sm text-slate-body">Tiered pricing on every format.</p></div></div>
+    <div class="flex gap-4"><span aria-hidden="true" class="material-symbols-outlined text-3xl text-orange-brand">receipt_long</span><div><h2 class="font-serif text-lg font-semibold">GST invoices</h2><p class="text-sm text-slate-body">Proper tax invoices for your books.</p></div></div>
+    <div class="flex gap-4"><span aria-hidden="true" class="material-symbols-outlined text-3xl text-orange-brand">local_shipping</span><div><h2 class="font-serif text-lg font-semibold">Pan-India delivery</h2><p class="text-sm text-slate-body">Palletised or boxed, depending on the order size.</p></div></div>
+  </div>
+  <!-- TODO(wholesale): POST to your inbox or CRM. Until then the form validates and points to contact.html. -->
+  <form class="lg:col-span-3 bg-white rounded-3xl border border-sand-border p-8 grid sm:grid-cols-2 gap-4" id="ws-form" novalidate>
+    <div><label class="block text-xs font-bold mb-1.5" for="ws-name">Your name</label><input class="w-full rounded-full border-sand-border focus:border-navy-brand focus:ring-0 px-5 py-3" id="ws-name" required/></div>
+    <div><label class="block text-xs font-bold mb-1.5" for="ws-biz">Business name</label><input class="w-full rounded-full border-sand-border focus:border-navy-brand focus:ring-0 px-5 py-3" id="ws-biz" required/></div>
+    <div><label class="block text-xs font-bold mb-1.5" for="ws-email">Email</label><input autocomplete="email" class="w-full rounded-full border-sand-border focus:border-navy-brand focus:ring-0 px-5 py-3" id="ws-email" required type="email"/></div>
+    <div><label class="block text-xs font-bold mb-1.5" for="ws-phone">Phone</label><input autocomplete="tel" class="w-full rounded-full border-sand-border focus:border-navy-brand focus:ring-0 px-5 py-3" id="ws-phone" pattern="[6-9][0-9]{9}" required type="tel"/></div>
+    <div class="sm:col-span-2"><label class="block text-xs font-bold mb-1.5" for="ws-msg">What would you like to stock?</label><textarea class="w-full rounded-3xl border-sand-border focus:border-navy-brand focus:ring-0 px-5 py-3" id="ws-msg" required rows="5"></textarea></div>
+    <button class="sm:col-span-2 py-3.5 rounded-full bg-orange-brand hover:bg-orange-deep text-white font-bold transition-colors" type="submit">Send enquiry</button>
+    <p aria-live="polite" class="sm:col-span-2 text-xs min-h-[1rem] text-slate-body" id="ws-out"></p>
+  </form>
+</section>
+</main>
+<script>siteFooter()</script>
+<script>
+document.getElementById('ws-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('ws-out').innerHTML = e.target.checkValidity()
+    ? 'This form isn’t connected yet, so nothing was sent. Please reach us through the <a class="underline" href="contact.html">contact page</a>.'
+    : 'Please fill in every field with a valid email and a 10-digit mobile number.';
+});
+</script>
+</body></html>
